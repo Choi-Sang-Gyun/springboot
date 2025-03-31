@@ -1,0 +1,47 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.18'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.simple'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(11)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok' //롬복
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.mysql:mysql-connector-j' //커넥터
+	runtimeOnly 'com.oracle.database.jdbc:ojdbc11' //커넥트
+	annotationProcessor 'org.projectlombok:lombok' //롬복
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' //테스트환경
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher' //junit테스트환경
+
+
+
+	//jsp 화면으로 쓰려면
+	//implementation("org.apache.tomcat.embed:tomcat-embed-jasper:9.0.83") //jasper
+	//implementation("javax.servlet:jstl:1.2") //jstl
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+	//특정 버전을 명시해서 쓰겠다하면 :2.2.17 식으로 쓰고 이걸 안쓰면 자동으로 스프링 버전을 따라감
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
