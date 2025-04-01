@@ -40,6 +40,9 @@ dependencies {
 	//implementation("javax.servlet:jstl:1.2") //jstl
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	//특정 버전을 명시해서 쓰겠다하면 :2.2.17 식으로 쓰고 이걸 안쓰면 자동으로 스프링 버전을 따라감
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 }
 
 tasks.named('test') {

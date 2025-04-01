@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>타임리프 반복문</h3>
+
+    <ul>
+        <li th:each="vo : ${list}"> <!-- 향상된 for문 같은 형태 -->
+            [[${vo.id}]]
+            [[${vo.name}]]
+            [[${vo.salary}]]
+        </li>
+    </ul>
+
+    <hr>
+
+    <ul>
+        <li th:each="vo, status : ${list}">
+            [[${status.count}]]번<br>
+            [[${status}]]<br>
+            [[${vo}]]<br>
+
+        </li>
+    </ul>
+
+    <hr>
+    <h3>타임리프 조건문</h3>
+    <ul>
+        <li th:each="vo : ${list}" th:if="${vo.name != '홍길동5'}">
+            [[${vo}]]
+        </li>
+    </ul>
+
+    <hr>
+
+    <ul>
+        <li th:each="vo, status : ${list}">
+            <span th:if="${status.count %2 ==0}">[[${vo}]]</span>
+            <span th:unless="${status.count %2 ==0}">홀수...</span>
+        </li>
+    </ul>
+
+
+
+</body>
+</html>

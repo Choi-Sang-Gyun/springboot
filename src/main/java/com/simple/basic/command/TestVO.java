@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 //@Setter //setter
 //@ToString //tostring메서드 오버라이딩
 @Data //getter + setter + toString
+@Builder
 public class TestVO {
 
     //단축키는 alt + insert

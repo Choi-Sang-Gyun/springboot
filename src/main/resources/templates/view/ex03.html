@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>block태그와 a링크</h3>
+    <!--block태그 = 가짜 중괄호-->
+
+    <ul>
+        <th:block th:each="vo:${list}">
+        <li>[[${vo}]]</li>
+        </th:block>
+    </ul>
+
+    <hr>
+
+    <h3>타임리프 a링크</h3>
+
+    <ul>
+        <li th:each="vo : ${list}">
+            <!--쿼리스트림으로 파라미터 넘기는 방법1-->
+            <a th:href="@{/view/result(name=${vo.name})}">[[${vo.name}]]</a>
+
+
+            <!--쿼리파라미터로 넘기는 방법2-->
+            <a th:href="@{/view/result2/{a}/{b}(a=${vo.address})}">[[${vo.address}]]</a>
+        </li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/include/layout03 :: 함수( ~{:: .box} )}">
+    <!--내 파일이라 경로 안들어가고 :: 으로 시작-->
+
+    <div id="wrap1">
+        아이디 선택자 #
+    </div>
+
+    <div class="box">
+        클래스 선택자.
+    </div>
+
+</th:block>
+
+<!--이 페이지에서 인식되어야 하는 코드 같은 경우는 block 밖에서 작성-->
+<script>
+    console.log(1);
+</script>
